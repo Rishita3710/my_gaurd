@@ -66,6 +66,7 @@ flutter:
       - assets/image/VoiceAssistant.png
       - assets/image/RouteTracking1.png
       - assets/image/calllog.png
+      - assets/image/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
