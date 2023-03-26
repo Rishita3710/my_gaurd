@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "643332160518",
+    "project_id": "my-guard-8a24f",
+    "storage_bucket": "my-guard-8a24f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643332160518:android:4629e438deefbe28be1787",
+        "android_client_info": {
+          "package_name": "com.example.my_guard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643332160518-vt1pb557q6iqn78pivu75teg5ovkchga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5UQtmBWUGPS9p8Iwk3V3LpjJelZeUkJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643332160518-vt1pb557q6iqn78pivu75teg5ovkchga.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "643332160518-5dkse85i0q94qj6i24vnl177df17h8u9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myGuard"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
