@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
       return _buildSplashWidget();
     }
 
-    return _user == null ? const MyLogin() : const HomeScreen();
+    return _user != null ? const MyLogin() : const HomeScreen();
   }
 
 //endregion

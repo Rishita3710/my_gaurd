@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_guard/screens/voice_assistant_instruction_screen.dart';
 
 class VoiceAssistantScreen extends StatelessWidget {
   const VoiceAssistantScreen({Key? key}) : super(key: key);
@@ -6,26 +7,31 @@ class VoiceAssistantScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Container(
-          width: double.maxFinite,
-          height: double.maxFinite,
-          //margin: EdgeInsets.all(11),
-          decoration: BoxDecoration(color: Colors.black),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Instruction',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text('Say hello to'),
-            ],
-          )),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.chevron_left, color: Colors.black,)),
+        centerTitle: true,
+        title: const Text(
+          'Voice Assistant',
+          style: TextStyle(color: Colors.black),
+        ),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (BuildContext context) {
+                  return VoiceAssistantInstructionScreen();
+                }));
+              },
+              tooltip: 'Info',
+              icon: const Icon(
+                Icons.info_outline,
+                color: Colors.black,
+              ))
+        ],
+      ),
     );
   }
 }

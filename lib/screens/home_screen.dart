@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
+      automaticallyImplyLeading: false,
       centerTitle: true,
       title: const Text(
         'Home',
