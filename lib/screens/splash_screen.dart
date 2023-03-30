@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:my_guard/screens/home_screen.dart';
-import 'package:my_guard/screens/login.dart';
+import 'package:my_guard/screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
       return _buildSplashWidget();
     }
 
-    return _user != null ? const MyLogin() : const HomeScreen();
+    return _user == null ? const LoginScreen() : const HomeScreen();
   }
 
 //endregion
@@ -67,6 +67,16 @@ class _SplashScreenState extends State<SplashScreen> {
     Future<dynamic>.delayed(const Duration(seconds: 2), () {
       setState(() {
         _isLoginStateRetrieved = true;
+      });
+    });
+
+    _onAuthStateChange();
+  }
+
+  void _onAuthStateChange() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      setState(() {
+        _user = user;
       });
     });
   }

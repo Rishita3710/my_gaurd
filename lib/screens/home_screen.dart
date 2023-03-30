@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_guard/screens/emergency_contacts_screen.dart';
 import 'package:my_guard/screens/route_tracking_screen.dart';
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppbar(),
+      appBar: _buildAppbar(context),
       body: _buildBody(context),
     );
   }
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
   //endregion
 
   //region: Widgets
-  AppBar _buildAppbar() {
+  AppBar _buildAppbar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
@@ -31,7 +32,7 @@ class HomeScreen extends StatelessWidget {
       actions: <Widget>[
         IconButton(
             onPressed: () {
-              _onLogOutClick();
+              _showLogoutDialog(context);
             },
             tooltip: 'Logout',
             icon: const Icon(
@@ -121,11 +122,43 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Future<dynamic> _showLogoutDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Logout'),
+            content: const Text('Are you sure you want to log out?'),
+            actions: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                ),
+                child: const Text('Cancel'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                ),
+                child: const Text('Logout'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  _onLogOutClick();
+                },
+              ),
+            ],
+          );
+        });
+  }
+
 //endregion
 
 //region: Private Functions
-  void _onLogOutClick() {
-    //todo add code here
+  Future<void> _onLogOutClick() async {
+    await FirebaseAuth.instance.signOut();
   }
 
   void _onItemClick(BuildContext context, Widget screen) {
