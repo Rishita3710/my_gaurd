@@ -36,8 +36,14 @@ dependencies:
   firebase_core:
   firebase_auth:
   fluttertoast: ^8.2.1
+  fluttercontactpicker: ^4.7.0
+  firebase_database: ^10.1.0
+  json_annotation: ^4.8.0
+
 
 dev_dependencies:
+  build_runner: ^2.3.3
+  json_serializable: ^6.6.1
   flutter_test:
     sdk: flutter
 
